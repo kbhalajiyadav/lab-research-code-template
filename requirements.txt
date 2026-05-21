@@ -1,0 +1,16 @@
+# Core scientific Python stack
+numpy
+pandas
+scipy
+matplotlib
+openpyxl
+
+# Notebook support
+jupyter
+ipykernel
+
+# Optional analysis utilities
+scikit-learn
+
+# Add project-specific dependencies below.
+# For manuscript-linked repositories, prefer pinned or bounded versions after the workflow is finalized.

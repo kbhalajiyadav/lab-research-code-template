@@ -1,0 +1,19 @@
+name: project-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - openpyxl
+  - scikit-learn
+  - jupyter
+  - ipykernel
+  - pip
+  - pip:
+      # Add pip-only project-specific dependencies below.
+      # Example:
+      # - package-name

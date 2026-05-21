@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated software release and any related publication."
+title: "Project Title"
+type: software
+authors:
+  - family-names: "LASTNAME"
+    given-names: "FIRSTNAME"
+    affiliation: "Virginia Commonwealth University"
+  - family-names: "LASTNAME"
+    given-names: "FIRSTNAME"
+    affiliation: "Virginia Commonwealth University"
+repository-code: "https://github.com/VCU-Soft-Functional-Materials-Lab/REPOSITORY-NAME"
+abstract: "Short description of the research code, analysis workflow, or computational tool."
+keywords:
+  - reproducible research
+  - data analysis
+  - research software
+license: "NOASSERTION"
+version: "0.1.0"
+date-released: "YYYY-MM-DD"
