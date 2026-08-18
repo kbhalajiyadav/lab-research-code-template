@@ -11,10 +11,15 @@ This repository follows a simple version-history format suitable for research co
 - Initial project setup.
 - Reproducible repository structure.
 - Documentation placeholders for future project-specific workflows.
+- `PROJECT.md` and `STATUS.md` contracts for durable project purpose and current-state continuity.
+- `RESEARCH_WORKFLOW.md` with progressive E/R/V/P rigor, session handoff, canonical WSL placement, verification/validation boundaries, and task-routing principles.
+- Minimal `AGENTS.md` and `CLAUDE.md` adapters for evidence-driven agent-assisted work.
 
 ### Changed
 
-- Nothing yet.
+- README navigation now starts with project contract, current state, and research workflow before execution details.
+- New-repository setup now scales reproducibility, validation, governance, and release controls with project maturity instead of requiring all controls during initial exploration.
+- `ROADMAP.md` now owns medium/long-term direction and deferred work rather than duplicating current status or executable issue tracking.
 
 ### Fixed
 

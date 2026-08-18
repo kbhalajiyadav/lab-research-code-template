@@ -1,47 +1,57 @@
 # Roadmap
 
-This file can be used to outline planned repository improvements, analysis milestones, and release goals.
+Use this file only for medium- and long-term project direction.
 
-Update this file for each project repository created from the template.
+Do not duplicate current state or executable work here:
 
-## Near-term tasks
+- `STATUS.md` owns the current phase, blocker, next action, and next deliverable.
+- GitHub issues own concrete work items, bugs, and implementation tasks.
+- `ROADMAP.md` owns strategic milestones, explicitly deferred work, possible future capabilities, and alternative directions.
 
-- [ ] Replace template README content with project-specific information.
-- [ ] Define project maintainer and PI/project lead in `MAINTAINERS.md`.
-- [ ] Update `CITATION.cff`.
-- [ ] Confirm license choice with PI or project lead.
-- [ ] Add project-specific dependencies.
-- [ ] Add user-guide instructions.
-- [ ] Add output dictionary definitions.
+This file is optional for small or short-lived projects.
 
-## Reproducibility tasks
+## Strategic milestones
 
-- [ ] Document input data sources.
-- [ ] Document analysis settings.
-- [ ] Add example input or demonstration workflow.
-- [ ] Define generated outputs.
-- [ ] Add quality-control checks.
-- [ ] Confirm workflow runs from a clean environment.
+Describe major outcomes rather than routine tasks.
 
-## Release tasks
+| Milestone | Why it matters | Evidence or condition to proceed | Target window |
+| --- | --- | --- | --- |
+| Replace me | Replace me | Replace me | Replace me |
 
-- [ ] Review `RELEASE_CHECKLIST.md`.
-- [ ] Confirm branch and tag protections.
-- [ ] Prepare release notes.
-- [ ] Create a version tag.
-- [ ] Archive release if needed.
-- [ ] Add DOI or archive link if applicable.
+## Deferred work
 
-## Future improvements
+Record work that is intentionally not being done now so future sessions do not repeatedly rediscover and reconsider it.
 
-Add project-specific planned improvements here.
+| Item | Why deferred | Revisit trigger |
+| --- | --- | --- |
+| Replace me | Replace me | Replace me |
+
+## Possible future capabilities
+
+List potential additions that are not yet justified.
 
 Examples:
 
-- improve documentation
-- add tests
-- add notebook smoke checks
-- add Binder or Colab support
-- add example data
-- package reusable code
-- improve figure/table export
+- reusable package or API
+- additional instrument/data-format support
+- Colab or Binder entry point
+- HPC execution path
+- stronger CI or notebook smoke checks
+- shared reusable component extraction
+- additional validation/reference methods
+
+Each capability should be promoted to an issue only when there is a concrete requirement.
+
+## Strategic alternatives and pivots
+
+Record material alternative directions when preserving them would help future scientific or engineering decisions.
+
+| Alternative | Evidence needed | Current disposition |
+| --- | --- | --- |
+| Replace me | Replace me | explore / defer / reject |
+
+## Review
+
+Review this roadmap periodically or after a major scientific pivot, release, collaborator change, or project-stage transition.
+
+Do not update it merely because `STATUS.md` or a GitHub issue changed.
