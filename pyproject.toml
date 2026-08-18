@@ -16,6 +16,23 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Operating System :: OS Independent",
 ]
+dependencies = [
+  "matplotlib",
+  "numpy",
+  "openpyxl",
+  "pandas",
+  "scikit-learn",
+  "scipy",
+]
+
+[dependency-groups]
+dev = [
+  "black",
+  "ipykernel",
+  "jupyter",
+  "pytest",
+  "ruff",
+]
 
 [tool.black]
 line-length = 88
