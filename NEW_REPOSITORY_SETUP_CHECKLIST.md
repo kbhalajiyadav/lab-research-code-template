@@ -32,15 +32,19 @@ See `RESEARCH_WORKFLOW.md` for promotion triggers. Do not impose publication-gra
 - [ ] Nothing indispensable exists only in scratch.
 - [ ] Anything outside Git required for reproducibility can be identified from repository documentation or metadata.
 
-## 4. Choose one authoritative environment mechanism
+## 4. Establish one authoritative environment mechanism
 
-This template retains multiple compatibility examples. A generated project should choose one environment authority rather than maintaining competing dependency definitions.
+The default Python authority in this template is `pyproject.toml` + committed `uv.lock`, with `.python-version` selecting the default interpreter.
 
-- [ ] Select the authoritative project environment mechanism.
-- [ ] Update only the selected authoritative environment definition with project dependencies.
-- [ ] Mark compatibility/secondary environment files clearly or remove them in a separately reviewed cleanup.
-- [ ] Remove unused placeholder dependencies when appropriate.
-- [ ] At R rigor or above, verify environment creation from a clean setup.
+- [ ] Confirm that the default uv workflow is appropriate for this project, or document a justified alternative in `PROJECT.md`.
+- [ ] Replace placeholder project metadata and remove dependencies the project does not need.
+- [ ] Add or remove dependencies with `uv add`, `uv add --dev`, or `uv remove` rather than hand-editing a second dependency source.
+- [ ] Run `uv lock` after changing project metadata, Python support, dependency declarations, or dependency groups.
+- [ ] Run `uv lock --check` to verify that the committed lockfile matches `pyproject.toml`.
+- [ ] At R rigor or above, run `uv sync --locked` from a clean project environment and verify the representative workflow.
+- [ ] Commit `uv.lock`; do not treat a generated `requirements.txt` export as the project authority.
+
+If Conda, a container, an HPC module stack, or another mechanism is required, replace the default authority deliberately and update `PROJECT.md` and user-facing setup instructions in the same reviewed change. Do not maintain competing hand-edited dependency definitions.
 
 Do not perform global/shared environment changes solely for one project unless explicitly approved.
 

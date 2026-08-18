@@ -89,9 +89,9 @@ See `RESEARCH_WORKFLOW.md` for promotion triggers and the distinction between so
 ├── RELEASE_CHECKLIST.md
 ├── ROADMAP.md
 ├── SECURITY.md
-├── environment.yml
+├── .python-version
 ├── pyproject.toml
-└── requirements.txt
+└── uv.lock
 ```
 
 Not every generated project must retain every optional template artifact forever. Use `NEW_REPOSITORY_SETUP_CHECKLIST.md` to select what is justified by project maturity and release needs.
@@ -105,22 +105,31 @@ git clone https://github.com/VCU-Soft-Functional-Materials-Lab/REPOSITORY-NAME.g
 cd REPOSITORY-NAME
 ```
 
-Before installing dependencies, choose and document one authoritative environment mechanism in `PROJECT.md`.
+For ordinary Python research projects, the template default is:
 
-This template currently retains Conda and pip examples for compatibility. They are examples, not permission to maintain multiple competing environment authorities in a project.
+- `pyproject.toml` — direct project dependencies and development tooling
+- `uv.lock` — exact resolved dependency set; commit it to Git
+- `.python-version` — default Python interpreter for the project
 
-Create the environment using Conda when Conda is the selected project authority:
-
-```bash
-conda env create -f environment.yml
-conda activate PROJECT_ENV_NAME
-```
-
-Or install dependencies using pip when the project explicitly uses `requirements.txt` as its selected authority:
+Create or synchronize the project environment from the committed lockfile:
 
 ```bash
-pip install -r requirements.txt
+uv sync --locked
 ```
+
+Run project commands through the managed environment:
+
+```bash
+uv run --locked python scripts/run_analysis.py
+uv run --locked jupyter lab
+uv run --locked pytest
+```
+
+Use `uv add`, `uv add --dev`, and the corresponding `uv remove` command to change dependencies so `pyproject.toml` and `uv.lock` remain aligned.
+
+If a project genuinely requires Conda, a container, an HPC module stack, or another environment mechanism, document that alternative as the authority in `PROJECT.md` and replace the default authority deliberately. Do not maintain `requirements.txt`, `environment.yml`, or another hand-edited dependency file as a parallel source of truth.
+
+If an external tool requires `requirements.txt`, generate it from the authoritative uv project rather than maintaining it independently.
 
 For notebook-based projects, place notebooks in `notebooks/`.
 
@@ -156,6 +165,12 @@ Before using this repository for a manuscript, poster, thesis, report, public re
 - validation evidence and scope
 - release tag
 - DOI/archive link, if applicable
+
+For the default uv workflow, verify that `uv.lock` is current with:
+
+```bash
+uv lock --check
+```
 
 Use `RELEASE_CHECKLIST.md` before creating a public release or archive.
 

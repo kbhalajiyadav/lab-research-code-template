@@ -14,12 +14,16 @@ This repository follows a simple version-history format suitable for research co
 - `PROJECT.md` and `STATUS.md` contracts for durable project purpose and current-state continuity.
 - `RESEARCH_WORKFLOW.md` with progressive E/R/V/P rigor, session handoff, canonical WSL placement, verification/validation boundaries, and task-routing principles.
 - Minimal `AGENTS.md` and `CLAUDE.md` adapters for evidence-driven agent-assisted work.
+- `.python-version` and a committed `uv.lock` for the default Python environment authority.
 
 ### Changed
 
 - README navigation now starts with project contract, current state, and research workflow before execution details.
 - New-repository setup now scales reproducibility, validation, governance, and release controls with project maturity instead of requiring all controls during initial exploration.
 - `ROADMAP.md` now owns medium/long-term direction and deferred work rather than duplicating current status or executable issue tracking.
+- `pyproject.toml` is now the single hand-edited Python dependency definition; runtime scientific dependencies and development/notebook tooling are declared there.
+- The default setup path now uses `uv sync --locked`, with alternative Conda/container/HPC environments treated as explicit project-specific replacements rather than parallel authorities.
+- Removed the hand-maintained `requirements.txt` and `environment.yml` compatibility definitions to eliminate dependency drift.
 
 ### Fixed
 

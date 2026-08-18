@@ -12,8 +12,8 @@ Before running the workflow, confirm that you have:
 
 - access to the repository
 - the required input data
-- Python or Conda installed
-- the required dependency files available
+- `uv` available for the default Python workflow, or the explicitly documented project environment tool
+- the committed authoritative environment files
 - permission to use any project-specific data
 
 ## Installation
@@ -25,18 +25,23 @@ git clone https://github.com/VCU-Soft-Functional-Materials-Lab/REPOSITORY-NAME.g
 cd REPOSITORY-NAME
 ```
 
-Create the Conda environment:
+For the default environment authority, create or synchronize the environment from `pyproject.toml` and `uv.lock`:
 
 ```bash
-conda env create -f environment.yml
-conda activate project-env
+uv sync --locked
 ```
 
-Alternatively, install dependencies with pip:
+Run commands through the project environment:
 
 ```bash
-pip install -r requirements.txt
+uv run --locked python scripts/run_analysis.py --input data/raw/example.csv --output results/
+uv run --locked jupyter lab
+uv run --locked pytest
 ```
+
+The default Python version is recorded in `.python-version`. `pyproject.toml` declares direct and development dependencies, while `uv.lock` records the exact resolved environment and should remain under version control.
+
+If the project documents Conda, a container, an HPC module stack, or another mechanism as its environment authority, replace this installation section with that project-specific procedure. Do not maintain multiple hand-edited dependency definitions as competing sources of truth.
 
 ## Input data
 
@@ -67,7 +72,7 @@ Add project-specific instructions here.
 Example:
 
 ```bash
-python scripts/run_analysis.py --input data/raw/example.csv --output results/
+uv run --locked python scripts/run_analysis.py --input data/raw/example.csv --output results/
 ```
 
 For notebook-based workflows, describe the notebook order and any required user inputs.
@@ -110,12 +115,19 @@ Before using outputs for a report, poster, thesis, or manuscript, verify:
 
 Before public release, document:
 
-- software version
-- release tag
-- dependency versions
+- software version and exact Git commit or release tag
+- authoritative environment mechanism
+- Python version
+- committed dependency lock or equivalent environment record
 - input data source
 - DOI/archive link, if available
 - analysis settings used for reported results
+
+For the default uv workflow, confirm the lockfile is current:
+
+```bash
+uv lock --check
+```
 
 ## Troubleshooting
 
@@ -127,7 +139,7 @@ Common items to document:
 - incorrect file paths
 - unexpected column names
 - notebook kernel issues
-- environment installation problems
+- environment installation or lockfile problems
 
 ## Contact
 
