@@ -4,6 +4,17 @@ Short description of the research code, analysis workflow, or computational tool
 
 Replace this title and description before public release, manuscript submission, or DOI archiving.
 
+## Start here
+
+Use these files in order when orienting to a project:
+
+1. `PROJECT.md` — what the project is, why it exists, and its durable constraints
+2. `STATUS.md` — where the project is now and what should happen next
+3. `RESEARCH_WORKFLOW.md` — how rigor, continuity, storage, validation, and agent-assisted work are handled
+4. this README and `docs/user_guide.md` — how to run the project workflow
+
+A fresh human or agent session should resume from durable project state rather than replaying old chat transcripts.
+
 ## Purpose
 
 This repository contains reproducible research code and documentation for lab research projects, including:
@@ -16,6 +27,17 @@ This repository contains reproducible research code and documentation for lab re
 - validation or quality-control checks
 
 Replace this section with a project-specific description before public release or manuscript submission.
+
+## Progressive rigor
+
+Use the lowest rigor level appropriate to the consequence of the work:
+
+- **E — Exploratory:** fast hypothesis and workflow exploration
+- **R — Reproducible:** stable environment, inputs/outputs, tests, and representative reruns
+- **V — Validated:** scientific validation, comparison, replication/robustness, and provenance
+- **P — Publication/Release:** exact code/data/environment lineage, promoted outputs, archive/release evidence, and independent review where warranted
+
+See `RESEARCH_WORKFLOW.md` for promotion triggers and the distinction between software verification and scientific validation.
 
 ## Repository structure
 
@@ -49,6 +71,11 @@ Replace this section with a project-specific description before public release o
 │   └── README.md
 ├── tests/
 │   └── README.md
+├── AGENTS.md
+├── CLAUDE.md
+├── PROJECT.md
+├── STATUS.md
+├── RESEARCH_WORKFLOW.md
 ├── README.md
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
@@ -67,6 +94,8 @@ Replace this section with a project-specific description before public release o
 └── requirements.txt
 ```
 
+Not every generated project must retain every optional template artifact forever. Use `NEW_REPOSITORY_SETUP_CHECKLIST.md` to select what is justified by project maturity and release needs.
+
 ## Getting started
 
 Clone the repository:
@@ -76,14 +105,18 @@ git clone https://github.com/VCU-Soft-Functional-Materials-Lab/REPOSITORY-NAME.g
 cd REPOSITORY-NAME
 ```
 
-Create the environment using Conda:
+Before installing dependencies, choose and document one authoritative environment mechanism in `PROJECT.md`.
+
+This template currently retains Conda and pip examples for compatibility. They are examples, not permission to maintain multiple competing environment authorities in a project.
+
+Create the environment using Conda when Conda is the selected project authority:
 
 ```bash
 conda env create -f environment.yml
 conda activate PROJECT_ENV_NAME
 ```
 
-Or install dependencies using pip:
+Or install dependencies using pip when the project explicitly uses `requirements.txt` as its selected authority:
 
 ```bash
 pip install -r requirements.txt
@@ -95,17 +128,32 @@ For reusable scripts, place command-line or helper scripts in `scripts/`.
 
 For reusable Python modules, place package code in `src/`.
 
-For tests or validation checks, use `tests/`.
+For tests or verification checks, use `tests/`.
+
+## Development and data placement
+
+For the standard WSL workflow, use:
+
+```text
+~/src/<project>       canonical Git working tree
+~/data/<project>      durable project data
+~/scratch/<project>   temporary/disposable working data
+```
+
+Nothing indispensable should exist only in scratch. Anything outside Git required to reproduce accepted work should be identifiable from the repository.
+
+See `RESEARCH_WORKFLOW.md` for the full placement and continuity rules.
 
 ## Reproducibility
 
-Before using this repository for a manuscript, poster, thesis, report, public release, or DOI archive, document:
+Before using this repository for a manuscript, poster, thesis, report, public release, or DOI archive, document as applicable:
 
-- input data sources
-- software version
-- package dependencies
-- analysis settings
-- expected outputs
+- input data sources and identifiers
+- exact software commit or release
+- the authoritative environment/dependency definition
+- analysis settings or configuration
+- expected and promoted outputs
+- validation evidence and scope
 - release tag
 - DOI/archive link, if applicable
 
