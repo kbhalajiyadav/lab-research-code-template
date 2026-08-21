@@ -15,6 +15,7 @@ This repository follows a simple version-history format suitable for research co
 - `RESEARCH_WORKFLOW.md` with progressive E/R/V/P rigor, session handoff, canonical WSL placement, verification/validation boundaries, and task-routing principles.
 - Minimal `AGENTS.md` and `CLAUDE.md` adapters for evidence-driven agent-assisted work.
 - `.python-version` and a committed `uv.lock` for the default Python environment authority.
+- Optional `ANALYSIS_EXPERIMENT_TEMPLATE.md` for material analysis and experiment contracts with run-to-decision lineage.
 
 ### Changed
 
@@ -24,6 +25,7 @@ This repository follows a simple version-history format suitable for research co
 - `pyproject.toml` is now the single hand-edited Python dependency definition; runtime scientific dependencies and development/notebook tooling are declared there.
 - The default setup path now uses `uv sync --locked`, with alternative Conda/container/HPC environments treated as explicit project-specific replacements rather than parallel authorities.
 - Removed the hand-maintained `requirements.txt` and `environment.yml` compatibility definitions to eliminate dependency drift.
+- Promoted accepted Research Execution System v0.4 policy into the template through actor and plan routing, trigger-based analysis/experiment escalation, external-branch reconciliation, and execution-feedback/governed-learning refinements.
 
 ### Fixed
 

@@ -8,6 +8,8 @@ Before material work, read:
 
 Use verified repository, runtime, data, and validation evidence over remembered or conversational context.
 
+Treat `STATUS.md` as the authority for current project state. Follow `RESEARCH_WORKFLOW.md` for actor and planning routing; do not invoke multiple planning or review agents by ritual, and preserve reviewer independence.
+
 Keep changes focused and minimal. Do not broaden scope merely because adjacent improvements are possible.
 
 Do not silently promote:
@@ -25,5 +27,7 @@ Use the documented project environment. Global package, interpreter, shared-envi
 Third-party MCP servers, plugins, hooks, daemons, orchestration tools, network/TLS exceptions, credentials, external uploads, destructive operations, and security-policy changes require explicit trust review and authorization.
 
 Agents do not approve their own consequential changes.
+
+Escalate decision, analysis, and experiment records only at the workflow triggers. Include execution feedback when it can materially prevent repeated rework; do not promote one-off friction into global rules without evidence.
 
 Commit, push, pull-request creation, merge, release, public publication, and other external writes remain separate authorization boundaries unless explicitly authorized for the current task.

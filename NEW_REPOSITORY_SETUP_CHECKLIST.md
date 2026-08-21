@@ -117,14 +117,24 @@ For released software, manuscript-linked workflows, or DOI-archived repositories
 
 ## 10. Add maturity-specific records only when needed
 
-At R/V/P rigor, consider the following based on project complexity:
+Base project state should remain lean:
+
+- [ ] Maintain `README.md`, `PROJECT.md`, and `STATUS.md`; retain `AGENTS.md` only when agents operate in the repository.
+- [ ] Establish the environment, durable-data, and disposable-scratch boundaries described above.
+
+Add records when their workflow trigger appears, not automatically at repository creation:
 
 - [ ] `docs/output_dictionary.md` for defined outputs, columns, metrics, and units.
-- [ ] a validation plan or evidence record for consequential scientific methods.
-- [ ] durable decision records when future collaborators will need to know why a material choice was made.
+- [ ] Durable material rationale: use a decision record or an existing project-owned record.
+- [ ] Material scientific, inferential, or comparative analysis: start from `ANALYSIS_EXPERIMENT_TEMPLATE.md` and create an `ANALYSIS_PLAN.md` or equivalent only when useful.
+- [ ] Multiple trials whose identity becomes ambiguous: use lightweight experiment records with stable IDs.
+- [ ] A reproducible accepted run: preserve stable run/output identity and manifest linkage.
+- [ ] A validated or consequential claim: preserve appropriate validation, robustness, comparison, or replication evidence.
+- [ ] Publication or release: freeze traceable code, data, environment, and output lineage.
 - [ ] representative/synthetic test data and expected outputs.
-- [ ] run/provenance manifests for consequential executions.
 - [ ] `ROADMAP.md` for medium/long-term direction or explicitly deferred work.
+
+- [ ] Before continuing local execution on a branch or commit created or updated externally, complete the reconciliation sequence in `RESEARCH_WORKFLOW.md` and verify the expected SHA.
 
 Do not create empty records solely because the template offers them.
 

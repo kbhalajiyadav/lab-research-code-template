@@ -72,6 +72,7 @@ See `RESEARCH_WORKFLOW.md` for promotion triggers and the distinction between so
 ├── tests/
 │   └── README.md
 ├── AGENTS.md
+├── ANALYSIS_EXPERIMENT_TEMPLATE.md
 ├── CLAUDE.md
 ├── PROJECT.md
 ├── STATUS.md
@@ -95,6 +96,8 @@ See `RESEARCH_WORKFLOW.md` for promotion triggers and the distinction between so
 ```
 
 Not every generated project must retain every optional template artifact forever. Use `NEW_REPOSITORY_SETUP_CHECKLIST.md` to select what is justified by project maturity and release needs.
+
+`ANALYSIS_EXPERIMENT_TEMPLATE.md` is an optional, triggered starting contract for material scientific, inferential, comparative, or consequential analysis. Projects need not fill or retain it for trivial exploration.
 
 ## Getting started
 

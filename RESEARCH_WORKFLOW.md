@@ -163,13 +163,35 @@ Do not require the local coding agent to reread an entire exploratory chat.
 
 Use the least expensive and least privileged mechanism capable of completing the task correctly.
 
-- ChatGPT: broad reasoning, research, planning, synthesis, and specification
-- Codex: canonical local repository/runtime implementation and execution
-- deterministic tools: mechanical facts such as tests, hashes, schemas, file sets, and reproducibility checks
-- Claude Code or another independent reviewer: consequential semantic, scientific, architectural, or security review when independence materially improves confidence
-- human: scientific judgment and material authorization boundaries
+- ChatGPT or the reasoning director: scientific reasoning; research and literature synthesis; objective and hypothesis refinement; experiment or analysis design; task specification; and cross-project or system reasoning where applicable
+- Codex: exact local repository, runtime, code, or schema inspection when needed; bounded implementation; and authorized local execution; it does not approve its own consequential candidate
+- deterministic mechanisms: Git state, tests, hashes, schemas, manifests, numerical reproduction, and other mechanical pass/fail evidence
+- Claude Code or another independent reviewer: independent semantic, scientific, architectural, or security challenge when useful; while serving as reviewer it is read-only by default and does not modify the candidate unless explicitly reassigned in a later implementation cycle
+- human or project lead: scientific judgment, ambiguity resolution where evidence cannot decide, consequential authorization, candidate acceptance or rejection, and external-write, publication, and release boundaries
+
+For planning, ChatGPT reasoning is normally sufficient for scientific framing and analysis or task design. Add Codex read-only inspection when exact repository, runtime, code, or schema state materially affects the plan. Add a read-only independent plan critique only when that challenge materially improves confidence. Do not invoke ChatGPT, Codex, and Claude mechanically as planning or review ceremony.
 
 Do not consume strong-agent capacity merely because it is available. Preserve capacity for revisions, pivots, hard debugging, deadlines, and consequential review.
+
+## Triggered project records and lineage
+
+Keep base project state lean. At trivial E-rigor exploration, do not require decision, analysis, or experiment records merely because templates exist. Escalate only when a workflow trigger appears:
+
+- when material durable rationale appears, use a decision record such as `DECISIONS.md` or an existing project-owned record
+- when scientific, inferential, or comparative analysis becomes material, use `ANALYSIS_EXPERIMENT_TEMPLATE.md` as a starting contract and instantiate `ANALYSIS_PLAN.md` or an equivalent project-owned record only when useful
+- when multiple experiments or trials become ambiguous, use lightweight experiment records or an `experiments/` directory with stable IDs when identity helps
+
+Maintain enough lineage for consequential work to connect the question to the analysis or experiment plan, code/configuration/data identity, run, output or manifest, result, decision, and supported claim or next experiment. Prefer a generated run manifest as the owner of mechanical identifiers rather than manually duplicating hashes. Neither an experiment ID nor a separate Git branch is required for trivial work or for every experiment.
+
+## External branch reconciliation
+
+If a branch or commit was created or updated externally and local execution will continue:
+
+1. verify that local state is clean or otherwise interpretable
+2. fetch the authoritative remote
+3. switch to or track the intended branch
+4. verify the expected commit SHA
+5. only then continue local execution
 
 ## Change and output discipline
 
@@ -209,3 +231,7 @@ When a recurring problem appears, prefer the strongest low-overhead prevention m
 5. agent memory only as convenience context
 
 Do not turn every historical mistake into a permanent prompt rule.
+
+For material work, record execution feedback when it would help prevent repeated rework. A normal task return, issue, or existing project record may capture, as useful: `avoidable_rework`, `observed_friction`, `root_cause`, `candidate_prevention`, `estimated_benefit`, `complexity_cost`, `scope` (`project | template | RSE | WSL | none`), `repeat_evidence`, and `recommendation` (`ignore | observe | project-local | promote`). Do not create a mandatory feedback file.
+
+Prefer prevention in this order: deterministic check, schema, or gate; tool or configuration fix; reusable procedure or template; durable instruction; memory or conversation convenience. One incident does not automatically justify a permanent global rule.
